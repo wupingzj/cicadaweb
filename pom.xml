@@ -37,6 +37,18 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+		
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter</artifactId>
+		    <exclusions>
+		    	<!-- exclude springboot default logback logging. Instead, use log4j -->
+		        <exclusion>
+		            <groupId>org.springframework.boot</groupId>
+		            <artifactId>spring-boot-starter-logging</artifactId>
+		        </exclusion>
+		    </exclusions>
+		</dependency>
 
 		<!-- Add production-grade services: http://spring.io/guides/gs/spring-boot/ -->
 		<!-- http://docs.spring.io/spring-boot/docs/1.1.10.RELEASE/reference/htmlsingle/#production-ready. 
@@ -66,16 +78,23 @@
 			<!-- <version>1.4.182</version> -->
 		</dependency>
 
-		<!-- <dependency>
+		<!-- http://docs.spring.io/spring-boot/docs/current/reference/html/howto-logging.html -->
+<!--
+		The slf4j dependency is automatically provided by SpringBoot.
+ 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
-			</dependency>
+		</dependency>
 
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
-			<scope>test</scope>
-		</dependency> -->
+		</dependency>
+ -->
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-log4j</artifactId>
+		</dependency>
 
 	</dependencies>
 
