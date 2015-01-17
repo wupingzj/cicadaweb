@@ -1,7 +1,9 @@
-var myclients = myclients || {};
-myclients.app = angular.module("myclients", ["ngRoute", "upidamodule"]);
+
+cicadaApp = angular.module("cicadaApp", ["ngRoute", "ngResource"]);
+//var cicada = cicada || {};
+//cicada.app = cicadaApp
  
-myclients.app.config(function ($routeProvider) {
+cicadaApp.config(function ($routeProvider) {
     $routeProvider
         .when("/", {
             templateUrl: "client/list",
@@ -24,4 +26,22 @@ myclients.app.config(function ($routeProvider) {
         });
 });
  
-$upida.baseUrl = "/api/";
+userApp.config(function($routeProvider) {
+	$routeProvider.when('/users/new', {
+		controller : 'NewUserCtrl',
+		templateUrl : 'views/newuser.html'
+	}).when('/users/:userId', {
+		controller : 'UsersByIdCtrl',
+		templateUrl : 'views/userbyid.html'	
+	}).when('/users', {
+		controller : 'UsersCtrl',
+		templateUrl : 'views/users.html'	
+	}).otherwise({
+		controller : 'SpaCtrl',
+		templateUrl: 'views/spahome.html'
+    });
+});
+
+userApp.controller("UsersCtrl", [ '$scope','userservice', function($scope, userservice) {  
+	userservice.getUsers( $scope );    
+} ]);
