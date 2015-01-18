@@ -12,10 +12,15 @@ import org.springframework.security.config.annotation.web.servlet.configuration.
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
+//		http
+//        .authorizeRequests()
+//            .antMatchers("/*").permitAll();
+            
+		
 		// if /info, /health and /beans shows HTTP 404 error, basically means authentication failed.
 		http
         .authorizeRequests()
-            .antMatchers("/", "/home", "/greeting", "/heartbeat", "/info", "/health", "/beans").permitAll()
+            .antMatchers("/", "/home", "/heartbeat", "/info", "/health", "/beans", "/index.html", "/test.html", "/test2.html").permitAll()
             .anyRequest().authenticated()
             .and()
         .formLogin()
@@ -24,33 +29,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .and()
         .logout()
             .permitAll();
-
-//		http
-//		.authorizeRequests()
-//			.antMatchers("/heartbeat").permitAll();
-
-//		http
-//		.authorizeRequests()
-//			.antMatchers("/greeting").permitAll();
-
-//		http
-//		.authorizeRequests()
-//			.antMatchers("/", "/home").permitAll()
-//			.anyRequest().authenticated().and()
-//		.formLogin()
-//			.loginPage("/login").permitAll().and()
-//		.logout().permitAll();
-		
-//		http
-//		.authorizeRequests()
-//			.antMatchers("/", "/home").permitAll();
-//
-//		http
-//		.authorizeRequests()
-//			.anyRequest().authenticated().and()
-//		.formLogin()
-//			.loginPage("/login").permitAll().and()
-//		.logout().permitAll();
 	}
 	
 	@Autowired

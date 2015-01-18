@@ -1,4 +1,4 @@
-package com.yang.cicada.service;
+package com.yang.cicada.web;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
