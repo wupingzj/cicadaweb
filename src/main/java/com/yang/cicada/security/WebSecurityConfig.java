@@ -20,7 +20,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		// if /info, /health and /beans shows HTTP 404 error, basically means authentication failed.
 		http
         .authorizeRequests()
-            .antMatchers("/", "/home", "/heartbeat", "/info", "/health", "/beans", "/index.html", "/test.html", "/test2.html").permitAll()
+            .antMatchers("/", "/home", "/heartbeat", "/info", "/health", "/beans", "/index.html", "/test.html", "/test2.html", "/bootstrap_template.html").permitAll()
             .anyRequest().authenticated()
             .and()
         .formLogin()
