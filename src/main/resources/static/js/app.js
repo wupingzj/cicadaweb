@@ -5,21 +5,13 @@ cicadaApp = angular.module("cicadaApp", ["ngRoute", "ngResource"]);
  
 cicadaApp.config(function ($routeProvider) {
     $routeProvider
-        .when("/", {
-            templateUrl: "client/list",
-            controller: "clientListController"
+        .when("/request/publish", {
+            templateUrl: "/request/publish",
+            controller: "/requestPublishController"
         })
-        .when("/client/list", {
-            templateUrl: "client/list",
-            controller: "clientListController"
-        })
-        .when("/client/create", {
-            templateUrl: "client/create",
-            controller: "clientCreateController"
-        })
-        .when("/client/edit/:id", {
-            templateUrl: "client/edit",
-            controller: "clientEditController"
+        .when("/request/followup", {
+            templateUrl: "request/followup",
+            controller: "requestFollowUpController"
         })
         .otherwise({
             templateUrl: "home/notfound"
