@@ -3,7 +3,7 @@ var dashboardControllers = angular.module('dashboardControllers', []);
 dashboardControllers.controller('CountryListCtrl', ['$scope', '$http',
   function ($scope, $http) {
     $http.get('testdata/countries.json').success(function(data) {
-      $scope.phones = data;
+      $scope.countries = data;
     });
 
     $scope.orderProp = 'age';
