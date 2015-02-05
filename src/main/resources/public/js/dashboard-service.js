@@ -1,3 +1,14 @@
+var phonecatServices = angular.module('phonecatServices', ['ngResource']);
+
+phonecatServices.factory('Phone', ['$resource',
+  function($resource){
+    return $resource('phones/:phoneId.json', {}, {
+      query: {method:'GET', params:{phoneId:'phones'}, isArray:true}
+    });
+  }]);
+
+
+
 //********** services *******************
 dashboardApp.factory( 'countryService', [ '$resource', function( $resource ){
 	return new Country( $resource );

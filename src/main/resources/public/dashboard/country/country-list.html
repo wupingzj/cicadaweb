@@ -1,1 +1,30 @@
-This is a list of countriess
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2">
+      <!--Sidebar content-->
+
+      Search: <input ng-model="query">
+      Sort by:
+      <select ng-model="orderProp">
+        <option value="name">Alphabetical</option>
+        <option value="age">Newest</option>
+      </select>
+
+    </div>
+    <div class="col-md-10">
+      <!--Body content-->
+
+      <ul class="countries">
+        <!-- <li ng-repeat="country in countries | filter:query | orderBy:orderProp" class="thumbnail"> -->
+        <li ng-repeat="country in countries" class="thumbnail">
+          <a href="#/countries/{{country.id}}" class="thumb"><img ng-src="{{country.imageUrl}}"></a>
+          <a href="#/countries/{{country.id}}">{{country.name}}</a>
+          <p>{{country.description}}</p>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</div>
