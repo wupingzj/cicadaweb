@@ -46,7 +46,8 @@ function Country(resource) {
 		//
 		// Query Action Method
 		//
-		var Countries = resource('/countries/all');
+		//var Countries = resource('/countries/all');
+		var Countries = resource('testdata/countries.json');
 		Countries.query(function(countries) {
 			scope.countries = countries;
 		});
