@@ -9,11 +9,13 @@
 // }]);
 
 // ********** services *******************
-var dashboardServiceModule = angular.module('dashboardServiceModule', [ 'ngResource' ]);
+var dashboardServiceModule = angular.module('dashboardServiceModule',
+		[ 'ngResource' ]);
 
-dashboardServiceModule.factory('countryService', [ '$resource', function countryServiceFactory($resource) {
-	return new Country($resource);
-} ]);
+dashboardServiceModule.factory('countryService', [ '$resource',
+		function countryServiceFactory($resource) {
+			return new Country($resource);
+		} ]);
 
 function Country(resource) {
 	this.resource = resource;
@@ -42,14 +44,24 @@ function Country(resource) {
 		})
 	}
 
+	// Both the following two methods work 
 	this.getCountries = function(scope) {
 		//
 		// Query Action Method
 		//
-		//var Countries = resource('/countries/all');
+		// var Countries = resource('/countries/all');
 		var Countries = resource('testdata/countries.json');
 		Countries.query(function(countries) {
 			scope.countries = countries;
 		});
+	}
+
+	this.getCountriesV2 = function() {
+		var Countries = resource('testdata/countries.json', {}, {
+						// query: {method:'GET', params:{phoneId:'phones'}, isArray:true}
+						   query : { method : 'GET', params : {}, isArray : true}
+						});
+
+		return Countries.query();
 	}
 }

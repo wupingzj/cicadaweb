@@ -11,8 +11,10 @@ var dashboardControllerModule = angular.module('dashboardControllerModule', []);
 
 dashboardControllerModule.controller('CountryListCtrl', [ '$scope',
 		'countryService', function($scope, countryService) {
-			// $scope.countries = countryService.getCountries($scope);
-			countryService.getCountries($scope);
+	
+			// Both two approaches work
+			$scope.countries = countryService.getCountriesV2();
+			// countryService.getCountries($scope);
 			$scope.orderProp = 'active';
 		} ]);
 
