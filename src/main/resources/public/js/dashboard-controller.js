@@ -1,16 +1,15 @@
-var dashboardControllers = angular.module('dashboardControllers', []);
+var dashboardControllerModule = angular.module('dashboardControllerModule', []);
 
-dashboardControllers.controller('CountryListCtrl', ['$scope', '$http',
-  function ($scope, $http) {
-    $http.get('testdata/countries.json').success(function(data) {
-      $scope.countries = data;
-    });
+dashboardControllerModule.controller('CountryListCtrl', [ '$scope', '$http',
+		function($scope, $http) {
+			$http.get('testdata/countries.json').success(function(data) {
+				$scope.countries = data;
+			});
 
-    $scope.orderProp = 'age';
-  }]);
+			$scope.orderProp = 'active';
+		} ]);
 
-dashboardControllers.controller('CountryDetailCtrl', ['$scope', '$routeParams',
-  function($scope, $routeParams) {
-    $scope.countryId = $routeParams.countryId;
-  }]);
-
+dashboardControllerModule.controller('CountryDetailCtrl', [ '$scope',
+		'$routeParams', function($scope, $routeParams) {
+			$scope.countryId = $routeParams.countryId;
+		} ]);

@@ -9,16 +9,17 @@
       Sort by:
       <select ng-model="orderProp">
         <option value="name">Alphabetical</option>
-        <option value="age">Newest</option>
+        <option value="active">Active</option>
       </select>
+      Toggle to show/hide inactive countries
 
     </div>
     <div class="col-md-10">
       <!--Body content-->
 
       <ul class="countries">
-        <!-- <li ng-repeat="country in countries | filter:query | orderBy:orderProp" class="thumbnail"> -->
-        <li ng-repeat="country in countries" class="thumbnail">
+        <li ng-repeat="country in countries | filter:query | orderBy:orderProp" class="thumbnail">
+        <!-- <li ng-repeat="country in countries" class="thumbnail"> -->
           <a href="#/countries/{{country.id}}" class="thumb"><img ng-src="{{country.imageUrl}}"></a>
           <a href="#/countries/{{country.id}}">{{country.name}}</a>
           <p>{{country.description}}</p>
