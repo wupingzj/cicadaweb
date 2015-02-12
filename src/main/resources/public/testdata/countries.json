@@ -12,7 +12,7 @@
 		"code": "NZ",
 		"name": "New Zealand",
 		"active": "true",
-		"imageUrl": "image/country/NewZealand.3.jpg",
+		"imageUrl": "image/country/NewZealand.3x.jpg",
 		"description": "Description about New Zealand"
 	},
     {
@@ -20,7 +20,7 @@
 		"code": "CHN",
 		"name": "China",
 		"active": "true",
-		"imageUrl": "image/country/China.3.jpg",
+		"imageUrl": "image/country/China.3x.jpg",
 		"description": "Description about China"
 	},
 	{

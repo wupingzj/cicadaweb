@@ -50,14 +50,16 @@ function Country(resource) {
 		// Query Action Method
 		//
 		// var Countries = resource('/countries/all');
-		var Countries = resource('testdata/countries.json');
+		//var Countries = resource('testdata/countries.json');
+		var Countries = resource('country/list');
 		Countries.query(function(countries) {
 			scope.countries = countries;
 		});
 	}
 
 	this.getCountriesV2 = function() {
-		var Countries = resource('testdata/countries.json', {}, {
+		//var Countries = resource('testdata/countries.json', {}, {
+		var Countries = resource('country/list', {}, {
 						// query: {method:'GET', params:{phoneId:'phones'}, isArray:true}
 						   query : { method : 'GET', params : {}, isArray : true}
 						});
