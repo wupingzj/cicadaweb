@@ -28,13 +28,32 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //        .logout()
 //            .permitAll();
 		
+//		http
+//			.authorizeRequests()
+//	        .antMatchers("/dashboard*.js", "/dashboard*.html").hasRole("ADMIN")
+//	        .antMatchers("/**").hasRole("USER")
+//	        .and()
+//	    .formLogin()
+//	      	//.loginPage("/login")
+//	    	.permitAll()
+//	    	.and()
+//	    .logout()
+//	    	.permitAll();
+		
 		http
-			.authorizeRequests()
-	        .antMatchers("/dashboard*.js", "/dashboard*.html").hasRole("ADMIN")
-	        .antMatchers("/**").hasRole("USER")
+		// TODO - The following line must be DELETED to enable cross-site reference check
+		// enable CSRF check, results in this error:
+		// Expected CSRF token not found. Has your session expired?
+		.csrf().disable()
+		
+		.authorizeRequests()
+//	    	.antMatchers("/dashboard*.js", "/dashboard*.html").hasRole("ADMIN")
+	        //.antMatchers("/**").hasRole("USER")
+	        .antMatchers("/**").permitAll()
 	        .and()
 	    .formLogin()
-	      //.loginPage("/login")
+	      	//.loginPage("/login")
+	    	.permitAll()
 	    	.and()
 	    .logout()
 	    	.permitAll();

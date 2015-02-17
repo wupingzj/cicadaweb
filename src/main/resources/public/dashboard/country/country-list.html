@@ -20,8 +20,8 @@
       <ul class="countries">
         <li ng-repeat="country in countries | filter:query | orderBy:orderProp" class="thumbnail">
         <!-- <li ng-repeat="country in countries" class="thumbnail"> -->
-          <a href="#/countries/{{country.id}}" class="thumb"><img ng-src="{{country.imageUrl}}"></a>
-          <a href="#/countries/{{country.id}}">{{country.name}}</a>
+          <a href="#/countries/{{country.code}}" class="thumb"><img ng-src="{{country.imageUrl}}"></a>
+          <a href="#/countries/{{country.code}}">{{country.name}}</a>
           <p>{{country.description}}</p>
         </li>
       </ul>

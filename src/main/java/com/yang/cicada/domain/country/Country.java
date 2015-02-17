@@ -2,6 +2,7 @@ package com.yang.cicada.domain.country;
 
 public class Country {
 	// Code is the primary key
+	// ISO Alpha-3 Code: http://www.nationsonline.org/oneworld/country_code_list.htm
 	private String code;
 
 	private String name;
